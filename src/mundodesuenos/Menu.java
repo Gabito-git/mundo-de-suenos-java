@@ -197,9 +197,9 @@ public class Menu extends javax.swing.JFrame {
     // Conexion a base de datos
     
     private void conexionBD() {
-        String dbURL = "jdbc:mysql://localhost:3306/libreriamundodesuenos";
-        String username = "root";
-        String password = "P@ndora84";
+        String dbURL = "";
+        String username = "";
+        String password = "";
         try {
 
             conn = DriverManager.getConnection(dbURL, username, password);

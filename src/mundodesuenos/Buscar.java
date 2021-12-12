@@ -23,7 +23,7 @@ public class Buscar extends javax.swing.JFrame {
     public Buscar() {
         initComponents();
         
-        String[] titulos = {"Nombre", "Autor", "Precio", "Editorial"};
+        String[] titulos = {"Nombre", "Autor", "Precio", "Editorial", "cantidad"};
         dtm.setColumnIdentifiers(titulos);
         libroTable.setModel(dtm);
     }
@@ -144,7 +144,7 @@ public class Buscar extends javax.swing.JFrame {
     private void buscarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarButtonActionPerformed
         isbn = Integer.parseInt(isbnTextField.getText());
         String sql = "SELECT * FROM libros WHERE isbn = '"+ isbn +"'";
-        String[] datos = new String[4];
+        String[] datos = new String[5];
 
         if( isbn == 0 ){
             JOptionPane.showMessageDialog(null, "Por favor ingrese el ISBN");
@@ -159,6 +159,7 @@ public class Buscar extends javax.swing.JFrame {
                     datos[1] = result.getString(3);
                     datos[2] = String.valueOf(result.getDouble(4));
                     datos[3] = result.getString(6);
+                    datos[4] = String.valueOf(result.getInt(5));
 
                     dtm.addRow(datos);
 
